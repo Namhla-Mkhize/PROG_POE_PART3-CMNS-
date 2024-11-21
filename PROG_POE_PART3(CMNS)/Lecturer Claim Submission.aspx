@@ -10,37 +10,17 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" runat="server" href="~/">Claim Management System</a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                      <!-- Lecturer Claim Submission Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Lecturer Claim Submission.aspx">Claim Submission</a>
-  </li>
-
-  <!-- Claim Status Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Claim Status.aspx">Claim Status</a>
-  </li>
-
-  <!-- Coordinator Approval Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Coordinator Approval.aspx">Coordinator Approval</a>
-  </li>
-
-  <!-- Manager Approval Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Manager Approval.aspx">Manager Approval</a>
-  </li>
-
-  <!-- Human Resources Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Human Resouurces.aspx">HR</a>
-  </li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Lecturer Claim Submission.aspx">Claim Submission</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Claim Status.aspx">Claim Status</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Coordinator Approval.aspx">Coordinator Approval</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Manager Approval.aspx">Manager Approval</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Human Resouurces.aspx">HR</a></li>
                 </ul>
             </div>
         </div>
@@ -91,31 +71,6 @@
                 </td>
             </tr>
         </table>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            SelectCommand="SELECT [Lecturer_ID], [Lecturer_Name], [Hours_Worked], [Base_Rate], [Program_Code], [Module_Name], [Final_Payment], [FileName], [FilePath] FROM [Claims_TBL]" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-            <AlternatingRowStyle BackColor="#DCDCDC" />
-            <Columns>
-                <asp:BoundField DataField="Lecturer_ID" HeaderText="Lecturer_ID" SortExpression="Lecturer_ID" />
-                <asp:BoundField DataField="Lecturer_Name" HeaderText="Lecturer_Name" SortExpression="Lecturer_Name" />
-                <asp:BoundField DataField="Hours_Worked" HeaderText="Hours_Worked" SortExpression="Hours_Worked" />
-                <asp:BoundField DataField="Base_Rate" HeaderText="Base_Rate" SortExpression="Base_Rate" />
-                <asp:BoundField DataField="Program_Code" HeaderText="Program_Code" SortExpression="Program_Code" />
-                <asp:BoundField DataField="Module_Name" HeaderText="Module_Name" SortExpression="Module_Name" />
-                <asp:BoundField DataField="Final_Payment" HeaderText="Final_Payment" SortExpression="Final_Payment" />
-                <asp:BoundField DataField="FileName" HeaderText="FileName" SortExpression="FileName" />
-                <asp:BoundField DataField="FilePath" HeaderText="FilePath" SortExpression="FilePath" />
-            </Columns>
-            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#0000A9" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#000065" />
-        </asp:GridView>
     </form>
 </body>
 </html>
