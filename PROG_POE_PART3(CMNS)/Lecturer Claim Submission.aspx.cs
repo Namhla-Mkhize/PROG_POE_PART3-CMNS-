@@ -15,23 +15,16 @@ namespace PROG_POE_PART3_CMNS_
 
         protected void CalculateFinalPayment(object sender, EventArgs e)
         {
-            // Use InvariantCulture to handle numeric parsing consistently
-            if (decimal.TryParse(txtHoursWorked.Text, System.Globalization.NumberStyles.Any,
-                                 System.Globalization.CultureInfo.InvariantCulture, out decimal hoursWorked) &&
-                decimal.TryParse(txtBaseRate.Text, System.Globalization.NumberStyles.Any,
-                                 System.Globalization.CultureInfo.InvariantCulture, out decimal baseRate))
+            if (decimal.TryParse(txtHoursWorked.Text.Trim(), out decimal hoursWorked) &&
+                decimal.TryParse(txtBaseRate.Text.Trim(), out decimal baseRate))
             {
-                // Perform the calculation
                 decimal finalPayment = hoursWorked * baseRate;
-
-                // Display the result formatted to two decimal places
-                txtFinalPayment.Text = finalPayment.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                txtFinalPayment.Text = finalPayment.ToString("F2", CultureInfo.InvariantCulture);
             }
             else
             {
-                // Clear the field and show an error message if input is invalid
                 txtFinalPayment.Text = "";
-                ShowMessage("Enter valid numeric values for hours worked and base rate.", false);
+                ShowMessage("Invalid input. Please enter valid numbers for Hours Worked and Base Rate.", false);
             }
         }
 
@@ -39,18 +32,18 @@ namespace PROG_POE_PART3_CMNS_
         {
             CalculateFinalPayment(null, null);
 
-            if (string.IsNullOrEmpty(txtFinalPayment.Text))
+            if (string.IsNullOrWhiteSpace(txtFinalPayment.Text))
             {
-                ShowMessage("Final payment cannot be calculated. Check inputs.", false);
+                ShowMessage("Final payment calculation failed. Check the inputs.", false);
                 return;
             }
 
-            string lecturerID = txtLecturerID.Text;
-            string lecturerName = txtLecturerName.Text;
-            string hoursWorked = txtHoursWorked.Text;
-            string baseRate = txtBaseRate.Text;
-            string programCode = txtProgramCode.Text;
-            string moduleName = txtModuleName.Text;
+            string lecturerID = txtLecturerID.Text.Trim();
+            string lecturerName = txtLecturerName.Text.Trim();
+            string hoursWorked = txtHoursWorked.Text.Trim();
+            string baseRate = txtBaseRate.Text.Trim();
+            string programCode = txtProgramCode.Text.Trim();
+            string moduleName = txtModuleName.Text.Trim();
             string finalPayment = txtFinalPayment.Text;
 
             string fileName = "";
@@ -68,7 +61,6 @@ namespace PROG_POE_PART3_CMNS_
                 {
                     string query = "INSERT INTO Claims_TBL (Lecturer_ID, Lecturer_Name, Hours_Worked, Base_Rate, Program_Code, Module_Name, Final_Payment, FileName, FilePath) " +
                                    "VALUES (@LecturerID, @LecturerName, @HoursWorked, @BaseRate, @ProgramCode, @ModuleName, @FinalPayment, @FileName, @FilePath)";
-
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@LecturerID", lecturerID);
@@ -83,7 +75,6 @@ namespace PROG_POE_PART3_CMNS_
 
                         con.Open();
                         cmd.ExecuteNonQuery();
-                        con.Close();
                     }
                 }
 
@@ -92,7 +83,7 @@ namespace PROG_POE_PART3_CMNS_
             }
             catch (Exception ex)
             {
-                ShowMessage("Error occurred: " + ex.Message, false);
+                ShowMessage("Error: " + ex.Message, false);
             }
         }
 
@@ -107,23 +98,11 @@ namespace PROG_POE_PART3_CMNS_
             txtFinalPayment.Text = "";
         }
 
-        private void ShowMessage(string message, bool success)
+        private void ShowMessage(string message, bool isSuccess)
         {
             lblMessage.Text = message;
-            lblMessage.ForeColor = success ? System.Drawing.Color.Green : System.Drawing.Color.Red;
-        }
-
-        protected void txtProgramCode_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        // Add this method to handle the GridView1_SelectedIndexChanged event
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Example: Retrieve selected row data
-            GridViewRow selectedRow = GridView1.SelectedRow;
-            string lecturerId = selectedRow.Cells[0].Text;
-            ShowMessage($"Selected Lecturer ID: {lecturerId}", true);
+            lblMessage.ForeColor = isSuccess ? System.Drawing.Color.Green : System.Drawing.Color.Red;
         }
     }
 }
+
