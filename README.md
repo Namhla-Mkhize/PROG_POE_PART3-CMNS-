@@ -19,4 +19,14 @@ Can review, approve, or reject submitted claims.
 Has access to view claims submitted by all lecturers under their department.
 HR Department:
 Can view reports on approved claims.
-Responsible for overseeing the overall claim process.
+Responsible for overseeing the overall claim process. 
+
+ Usage
+Lecturer
+To submit a claim, go to the "Submit Claim" section and fill out the necessary details (e.g., claim type, amount).
+Once submitted, you can track the status of your claim in the "My Claims" section.
+Manager
+Log in to the application and go to the "Manage Claims" section.
+Review claims submitted by lecturers, approve or reject claims as needed.
+HR Department
+Access the "Reports" section to view and download reports on approved claims.
