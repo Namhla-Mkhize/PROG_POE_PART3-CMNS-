@@ -16,37 +16,18 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                          <!-- Lecturer Claim Submission Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Lecturer Claim Submission.aspx">Claim Submission</a>
-  </li>
-
-  <!-- Claim Status Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Claim Status.aspx">Claim Status</a>
-  </li>
-
-  <!-- Coordinator Approval Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Coordinator Approval.aspx">Coordinator Approval</a>
-  </li>
-
-  <!-- Manager Approval Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Manager Approval.aspx">Manager Approval</a>
-  </li>
-
-  <!-- Human Resources Page -->
-  <li class="nav-item">
-      <a class="nav-link" runat="server" href="~/Human Resouurces.aspx">HR</a>
-  </li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Lecturer Claim Submission.aspx">Claim Submission</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Claim Status.aspx">Claim Status</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Coordinator Approval.aspx">Coordinator Approval</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Manager Approval.aspx">Manager Approval</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Human Resouurces.aspx">HR</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <asp:GridView ID="GridViewCoordinatorApproval" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCoordinator"
-            BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" OnSelectedIndexChanged="GridViewCoordinatorApproval_SelectedIndexChanged">
+            BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <Columns>
                 <asp:BoundField DataField="Claim_ID" HeaderText="Claim ID" />
@@ -71,10 +52,6 @@
             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
             <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#0000A9" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSourceCoordinator" runat="server"
