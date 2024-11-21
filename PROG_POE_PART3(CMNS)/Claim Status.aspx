@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Claim Status.aspx.cs" Inherits="PROG_POE_PART3_CMNS_.Claim_Status" %>
-
+/* Begin */
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
